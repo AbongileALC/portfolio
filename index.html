@@ -3,23 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abongile Phandle — IT Developer</title>
+<title>Abongile Phandle — Software Developer</title>
+<meta name="description" content="Portfolio of Abongile Phandle, a third-year IT Software Development student at CPUT specialising in Java, Spring Boot and full-stack development. Seeking Work Integrated Learning and junior developer opportunities in Cape Town.">
+<meta name="keywords" content="Abongile Phandle, software developer, Java developer, CPUT, Cape Town, WIL, junior developer, Spring Boot, portfolio">
+<meta name="author" content="Abongile Phandle">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://abongilealc.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abongile Phandle — Software Developer">
+<meta property="og:description" content="Third-year IT Software Development student building Java, Spring Boot and full-stack applications. Available for Work Integrated Learning and junior developer roles.">
+<meta property="og:image" content="images/og-image.jpg">
+<meta property="og:url" content="https://abongilealc.github.io/">
+<meta property="og:site_name" content="Abongile Phandle — Portfolio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abongile Phandle — Software Developer">
+<meta name="twitter:description" content="Third-year IT Software Development student building Java, Spring Boot and full-stack applications.">
+<meta name="twitter:image" content="images/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abongile Phandle",
+  "jobTitle": "IT Software Development Student",
+  "url": "https://abongilealc.github.io/",
+  "email": "mailto:abongilealc@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cape Town",
+    "addressCountry": "ZA"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Cape Peninsula University of Technology"
+  },
+  "sameAs": [
+    "https://github.com/AbongileALC"
+  ],
+  "knowsAbout": ["Java", "Spring Boot", "JavaScript", "SQL", "Software Engineering", "Full-Stack Development"]
+}
+</script>
+
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
     --bg: #0a0a0a;
     --surface: #111111;
+    --surface2: #161616;
     --border: #1e1e1e;
     --text: #e8e4de;
     --muted: #5a5a5a;
     --accent: #c8b89a;
     --accent2: #4a7c6f;
     --white: #f0ece6;
+    --danger: #b5654f;
+    --ok: #4a7c6f;
   }
 
   html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
 
   body {
     background: var(--bg);
@@ -30,6 +85,24 @@
     cursor: none;
     overflow-x: hidden;
   }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 8px; top: -60px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 10px 16px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    z-index: 999;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 8px; }
 
   /* Custom cursor */
   .cursor {
@@ -54,6 +127,10 @@
     opacity: 0.5;
   }
   body:hover .cursor { opacity: 1; }
+  @media (hover: none), (pointer: coarse) {
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+  }
 
   /* Nav */
   nav {
@@ -77,7 +154,7 @@
     color: var(--accent);
     text-decoration: none;
   }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
   .nav-links a {
     color: var(--muted);
     text-decoration: none;
@@ -86,7 +163,26 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+  .nav-cv-btn {
+    padding: 8px 16px !important;
+    border: 1px solid var(--accent2);
+    color: var(--accent2) !important;
+  }
+  .nav-cv-btn:hover { background: var(--accent2); color: var(--bg) !important; }
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-toggle span { width: 22px; height: 1px; background: var(--text); transition: transform 0.25s, opacity 0.25s; }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   /* Hero */
   .hero {
@@ -125,6 +221,17 @@
     content: '';
     display: block; width: 24px; height: 1px;
     background: var(--accent2);
+  }
+  .hero-tag .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 0 rgba(74,124,111,0.6);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(74,124,111,0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(74,124,111,0); }
+    100% { box-shadow: 0 0 0 0 rgba(74,124,111,0); }
   }
 
   .hero-name {
@@ -175,6 +282,10 @@
     border: 1px solid;
     transition: all 0.25s ease;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    background: none;
+    cursor: none;
   }
   .btn-primary {
     background: var(--accent);
@@ -188,6 +299,23 @@
     border-color: var(--border);
   }
   .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+  .btn-cv {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+  .btn-cv:hover { background: var(--accent2); color: var(--bg); }
+  .btn-icon { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* Button ripple */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transform: scale(0);
+    animation: rippleAnim 0.6s linear;
+    pointer-events: none;
+  }
+  @keyframes rippleAnim { to { transform: scale(3); opacity: 0; } }
 
   /* Hero photo */
   .hero-right {
@@ -229,7 +357,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent2);
-    margin-bottom: 56px;
+    margin-bottom: 20px;
     display: flex; align-items: center; gap: 12px;
   }
   .section-label::after {
@@ -237,6 +365,53 @@
     flex: 1; height: 1px;
     background: var(--border);
   }
+  .section-heading {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 34px);
+    color: var(--white);
+    margin-bottom: 16px;
+    max-width: 640px;
+  }
+  .section-intro {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.9;
+    margin-bottom: 56px;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    background: linear-gradient(100deg, var(--surface) 30%, var(--surface2) 50%, var(--surface) 70%);
+    background-size: 300% 100%;
+    animation: shimmer 1.6s ease infinite;
+  }
+  @keyframes shimmer { 0% { background-position: 150% 0; } 100% { background-position: -150% 0; } }
+
+  img { max-width: 100%; }
+  img.lazy-img { opacity: 0; transition: opacity 0.5s ease; }
+  img.lazy-img.loaded { opacity: 1; }
+
+  /* ABOUT */
+  #about { border-top: 1px solid var(--border); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 64px;
+  }
+  .about-points { display: flex; flex-direction: column; gap: 0; }
+  .about-point {
+    display: flex; gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .about-point:first-child { border-top: 1px solid var(--border); }
+  .about-point b { color: var(--text); font-weight: 400; min-width: 110px; }
+  .about-body p { font-size: 13px; color: var(--muted); line-height: 1.95; margin-bottom: 18px; }
+  .about-body strong { color: var(--text); font-weight: 400; }
 
   /* Skills */
   #skills { border-top: 1px solid var(--border); }
@@ -287,6 +462,32 @@
     color: var(--border);
     font-size: 10px;
   }
+  .skill-card.learning .skill-list li::before { content: '↗'; color: var(--accent2); }
+
+  /* AI section */
+  #ai-productivity { border-top: 1px solid var(--border); }
+  .ai-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .ai-note {
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent2);
+    padding: 24px 28px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.9;
+    background: var(--surface);
+    margin-bottom: 28px;
+  }
+  .ai-note strong { color: var(--text); font-weight: 400; }
+  .ai-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ai-tag {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .ai-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
   /* Projects */
   #projects { border-top: 1px solid var(--border); }
@@ -301,13 +502,14 @@
     padding: 0;
     overflow: hidden;
     position: relative;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
     cursor: none;
   }
-  .project-card:hover { background: var(--surface); }
+  .project-card:hover { background: var(--surface); transform: translateY(-4px); }
 
   .project-screenshot {
     width: 100%;
+    aspect-ratio: 16/10;
     background: #0d0d0d;
     border-bottom: 1px solid var(--border);
     display: flex; flex-direction: column;
@@ -319,10 +521,37 @@
   .project-screenshot img {
     display: block;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     z-index: 1;
+    transition: transform 0.5s ease;
   }
+  .project-card:hover .project-screenshot img { transform: scale(1.04); }
+  .project-screenshot.no-image {
+    background: repeating-linear-gradient(135deg, var(--surface) 0px, var(--surface) 10px, var(--surface2) 10px, var(--surface2) 20px);
+  }
+  .project-screenshot.no-image::before {
+    content: attr(data-initial);
+    font-family: 'Syne', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--border);
+  }
+
+  .status-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(4px);
+  }
+  .status-badge.completed { color: var(--ok); border-color: var(--ok); }
+  .status-badge.progress { color: var(--accent); border-color: var(--accent); }
 
   .project-body { padding: 28px 32px 32px; }
   .project-num {
@@ -340,17 +569,41 @@
     line-height: 1.2;
   }
   .project-stack {
-    font-size: 11px;
-    color: var(--accent);
+    display: flex; flex-wrap: wrap; gap: 6px;
     margin-bottom: 16px;
-    letter-spacing: 0.05em;
+  }
+  .project-stack span {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(200,184,154,0.25);
+    padding: 3px 8px;
   }
   .project-desc {
     font-size: 12px;
     color: var(--muted);
     line-height: 1.8;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
+  .project-highlights {
+    list-style: none;
+    margin-bottom: 22px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .project-highlights li {
+    font-size: 11.5px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .project-highlights li::before {
+    content: '✓';
+    position: absolute; left: 0; top: 0;
+    color: var(--accent2);
+    font-size: 10px;
+  }
+  .project-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .project-link {
     display: inline-flex; align-items: center; gap: 6px;
     font-size: 11px;
@@ -363,6 +616,7 @@
     transition: color 0.2s, border-color 0.2s;
   }
   .project-link:hover { color: var(--accent); border-color: var(--accent); }
+  .project-link.demo:hover { color: var(--accent2); border-color: var(--accent2); }
   .project-link .arrow { transition: transform 0.2s; }
   .project-link:hover .arrow { transform: translateX(4px); }
 
@@ -395,6 +649,112 @@
     width: fit-content;
   }
 
+  /* Experience Timeline */
+  #experience { border-top: 1px solid var(--border); }
+  .timeline { position: relative; max-width: 760px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding-left: 44px;
+    padding-bottom: 48px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute; left: 0; top: 4px;
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--accent2);
+  }
+  .timeline-item.current .timeline-dot { background: var(--accent2); box-shadow: 0 0 0 4px rgba(74,124,111,0.15); }
+  .timeline-period {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 8px;
+  }
+  .timeline-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .timeline-desc { font-size: 12.5px; color: var(--muted); line-height: 1.8; max-width: 560px; }
+
+  /* Achievements */
+  #achievements { border-top: 1px solid var(--border); }
+  .achv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .achv-card {
+    background: var(--bg);
+    padding: 30px 26px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .achv-card:hover { background: var(--surface); transform: translateY(-3px); }
+  .achv-mark {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .achv-title { font-size: 13px; color: var(--white); margin-bottom: 8px; font-weight: 400; }
+  .achv-desc { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+
+  /* Certifications */
+  #certifications { border-top: 1px solid var(--border); }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .cert-card {
+    border: 1px solid var(--border);
+    padding: 26px 24px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .cert-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .cert-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); }
+  .cert-issuer { font-size: 11px; color: var(--muted); }
+  .cert-status {
+    align-self: flex-start;
+    margin-top: 8px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .cert-status.planned { color: var(--accent); border-color: rgba(200,184,154,0.3); }
+
+  /* GitHub section */
+  #github-activity { border-top: 1px solid var(--border); }
+  .gh-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 40px; }
+  .gh-stat { background: var(--bg); padding: 26px 24px; text-align: left; }
+  .gh-stat-num { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 800; color: var(--accent); min-height: 36px; }
+  .gh-stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+  .gh-chart-wrap { border: 1px solid var(--border); padding: 28px; margin-bottom: 24px; overflow-x: auto; }
+  .gh-chart-wrap img { display: block; margin: 0 auto; filter: invert(0.05); max-width: 100%; }
+  .gh-lang-wrap { display: flex; justify-content: center; }
+  .gh-lang-wrap img { border: 1px solid var(--border); }
+  .gh-cta { display: flex; justify-content: center; margin-top: 32px; }
+
   /* Contact */
   #contact { border-top: 1px solid var(--border); }
   .contact-inner {
@@ -419,6 +779,7 @@
     line-height: 1.8;
     max-width: 360px;
   }
+  .contact-cta-row { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
   .contact-links { display: flex; flex-direction: column; gap: 0; }
   .contact-item {
     display: flex; align-items: center; justify-content: space-between;
@@ -428,13 +789,20 @@
     color: var(--muted);
     font-size: 13px;
     transition: color 0.2s;
+    background: none; border-top: none; border-left: none; border-right: none;
+    width: 100%; text-align: left; font-family: inherit; cursor: none;
   }
   .contact-item:first-child { border-top: 1px solid var(--border); }
   .contact-item:hover { color: var(--text); }
   .contact-item-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 4px; }
   .contact-item-val { font-size: 14px; }
-  .contact-arrow { font-size: 18px; transition: transform 0.2s; }
+  .contact-arrow { font-size: 18px; transition: transform 0.2s; flex-shrink: 0; margin-left: 12px; }
   .contact-item:hover .contact-arrow { transform: translateX(4px); }
+  .copy-toast {
+    font-size: 10px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .copy-toast.show { opacity: 1; }
 
   /* Footer */
   footer {
@@ -456,6 +824,145 @@
     width: 0%;
   }
 
+  /* ===================== CHATBOT ===================== */
+  .chat-launcher {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 500;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .chat-launcher:hover { transform: scale(1.08); }
+  .chat-launcher svg { width: 24px; height: 24px; stroke: var(--bg); }
+  .chat-launcher .dot-badge {
+    position: absolute; top: 4px; right: 4px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent2);
+    border: 2px solid var(--bg);
+  }
+
+  .chat-panel {
+    position: fixed;
+    bottom: 100px; right: 28px;
+    z-index: 500;
+    width: 360px;
+    max-width: calc(100vw - 40px);
+    height: 500px;
+    max-height: calc(100vh - 140px);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.28s ease, transform 0.28s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .chat-panel.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+
+  .chat-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+    background: var(--surface2);
+  }
+  .chat-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--accent2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; color: var(--bg); font-size: 13px;
+    flex-shrink: 0;
+  }
+  .chat-header-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; color: var(--white); }
+  .chat-header-sub { font-size: 10px; color: var(--accent2); letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; }
+  .chat-header-sub .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
+  .chat-close {
+    margin-left: auto; background: none; border: none; cursor: none;
+    color: var(--muted); font-size: 18px; line-height: 1; padding: 4px;
+    transition: color 0.2s;
+  }
+  .chat-close:hover { color: var(--text); }
+
+  .chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 16px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .chat-body::-webkit-scrollbar { width: 4px; }
+  .chat-body::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .chat-msg { display: flex; gap: 8px; max-width: 88%; animation: fadeUpSm 0.3s ease; }
+  .chat-msg.bot { align-self: flex-start; }
+  .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+  @keyframes fadeUpSm { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .chat-bubble {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    border: 1px solid var(--border);
+  }
+  .chat-msg.bot .chat-bubble { background: var(--bg); color: var(--text); border-top-left-radius: 0; }
+  .chat-msg.user .chat-bubble { background: var(--accent); color: var(--bg); border-color: var(--accent); border-top-right-radius: 0; }
+  .chat-bubble a { color: inherit; text-decoration: underline; }
+
+  .chat-typing { display: flex; gap: 4px; padding: 12px 14px; border: 1px solid var(--border); width: fit-content; }
+  .chat-typing span { width: 5px; height: 5px; border-radius: 50%; background: var(--muted); animation: typingBounce 1.2s infinite; }
+  .chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+  .chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes typingBounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+  .chat-quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 12px; }
+  .chat-quick button {
+    font-size: 10.5px;
+    padding: 6px 11px;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--muted);
+    cursor: none;
+    transition: border-color 0.2s, color 0.2s;
+    font-family: inherit;
+  }
+  .chat-quick button:hover { border-color: var(--accent); color: var(--accent); }
+
+  .chat-input-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .chat-input-row input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12.5px;
+    padding: 10px 12px;
+    outline: none;
+  }
+  .chat-input-row input:focus { border-color: var(--accent); }
+  .chat-send {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border: none;
+    cursor: none;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .chat-send:hover { background: var(--white); }
+  .chat-send svg { width: 15px; height: 15px; stroke: var(--bg); }
+
   /* Animations */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -473,22 +980,50 @@
   .reveal.visible { opacity: 1; transform: none; }
 
   /* Responsive */
+  @media (max-width: 1000px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .achv-grid { grid-template-columns: repeat(2, 1fr); }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    .gh-stats-row { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .ai-layout { grid-template-columns: 1fr; gap: 32px; }
+  }
+
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
+    .nav-links {
+      position: fixed; top: 68px; left: 0; right: 0;
+      flex-direction: column; align-items: flex-start; gap: 0;
+      background: rgba(10,10,10,0.98);
+      border-bottom: 1px solid var(--border);
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-links.open { max-height: 420px; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 16px 24px; width: 100%; border-bottom: 1px solid var(--border); }
+    .nav-toggle { display: flex; }
     .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 48px; }
     .hero-right { order: -1; }
     .photo-frame { width: 240px; height: 300px; }
     section { padding: 80px 24px; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-template-columns: 1fr; }
     .project-card.featured .project-screenshot { border-right: none; border-bottom: 1px solid var(--border); min-height: 200px; }
     .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .achv-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .gh-stats-row { grid-template-columns: repeat(2, 1fr); }
     footer { flex-direction: column; gap: 8px; text-align: center; }
+    .chat-panel { right: 16px; left: 16px; width: auto; bottom: 92px; }
+    .chat-launcher { right: 16px; bottom: 16px; }
   }
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="scroll-line" id="scrollLine"></div>
 <div class="cursor" id="cursor"></div>
@@ -496,27 +1031,42 @@
 
 <nav id="nav">
   <a class="nav-logo" href="#">AP.</a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#github-activity">GitHub</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="assets/Abongile-Phandle-CV.pdf" class="nav-cv-btn" download>Download CV</a></li>
   </ul>
 </nav>
+
+<main id="main">
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
-    <div class="hero-tag">Available for WIL · Cape Town, ZA</div>
+    <div class="hero-tag"><span class="dot"></span>Available for WIL · Cape Town, ZA</div>
     <h1 class="hero-name">Abongile<br><span>Phandle</span></h1>
     <p class="hero-title">IT Software Development Student</p>
     <p class="hero-bio">
-      Third-year student at <strong>CPUT</strong> building functional Java applications and web tools.
-      Strong in <strong>system design, UI development</strong>, and turning ideas into working software.
-      Looking for Work Integrated Learning opportunities.
+      Third-year student at <strong>CPUT</strong> building functional Java applications, database-driven
+      systems and web tools. Strong in <strong>system design, backend logic</strong> and UI development —
+      currently extending into <strong>Spring Boot</strong> and full-stack work. Looking for
+      Work Integrated Learning opportunities.
     </p>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      <a href="#projects" class="btn btn-primary" data-ripple>View Projects</a>
+      <a href="assets/Abongile-Phandle-CV.pdf" class="btn btn-cv" download data-ripple>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download CV
+      </a>
+      <a href="#contact" class="btn btn-ghost" data-ripple>Get in Touch</a>
     </div>
   </div>
   <div class="hero-right">
@@ -530,44 +1080,144 @@
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-points reveal">
+      <div class="about-point"><b>Based in</b> Cape Town, South Africa</div>
+      <div class="about-point"><b>Studying</b> IT Software Development, CPUT</div>
+      <div class="about-point"><b>Focus</b> Java · Full-Stack · Backend Systems</div>
+      <div class="about-point"><b>Status</b> Seeking WIL placement</div>
+      <div class="about-point"><b>Interests</b> Backend engineering, software design</div>
+    </div>
+    <div class="about-body reveal">
+      <p>
+        I'm a <strong>third-year IT Software Development student</strong> with a growing focus on
+        <strong>backend systems and full-stack Java development</strong>. Over the past few years I've built
+        desktop applications with JavaFX and Swing, database-driven systems with Apache Derby, and web
+        interfaces with core HTML, CSS and JavaScript — and I'm now extending that foundation into
+        <strong>Spring Boot</strong> and <strong>React</strong>.
+      </p>
+      <p>
+        I care about clean architecture: separating <strong>domain logic, services and controllers</strong> so
+        systems stay easy to test, extend and maintain. Outside of coursework I've contributed as both
+        <strong>designer and developer</strong> on group projects spanning community safety, marketplace
+        platforms and fuel-station management — from wireframes and UI/UX planning through to working code.
+      </p>
+      <p>
+        I'm currently completing my qualification at CPUT and actively looking for a <strong>Work Integrated
+        Learning</strong> placement where I can apply what I've learned in a real engineering team.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-label">Technical Skills</div>
+  <h2 class="section-heading">A practical toolkit built through coursework, group projects and self-study.</h2>
   <div class="skills-grid reveal">
     <div class="skill-card">
-      <div class="skill-cat">Languages</div>
+      <div class="skill-cat">Programming Languages</div>
       <ul class="skill-list">
         <li>Java</li>
         <li>JavaScript</li>
-        <li>HTML & CSS</li>
-        <li>Python (basic)</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Python</li>
+        <li>SQL</li>
       </ul>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">Frameworks & Tools</div>
+      <div class="skill-cat">Frameworks & Libraries</div>
       <ul class="skill-list">
         <li>JavaFX</li>
         <li>Swing</li>
-        <li>JXMapViewer</li>
-        <li>Git & GitHub</li>
+        <li>Spring Boot</li>
+        <li>React (Learning)</li>
       </ul>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">Database</div>
+      <div class="skill-cat">Databases</div>
       <ul class="skill-list">
         <li>Apache Derby</li>
-        <li>CRUD Applications</li>
-        <li>Data Handling</li>
+        <li>MySQL</li>
       </ul>
     </div>
     <div class="skill-card">
-      <div class="skill-cat">Design & Other</div>
+      <div class="skill-cat">Tools</div>
       <ul class="skill-list">
-        <li>UI/UX Planning</li>
-        <li>Wireframing</li>
-        <li>API Integration</li>
-        <li>System Design</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>VS Code</li>
+        <li>IntelliJ IDEA</li>
+        <li>NetBeans</li>
+        <li>Figma</li>
+        <li>Maven</li>
       </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Web Technologies</div>
+      <ul class="skill-list">
+        <li>REST APIs</li>
+        <li>Responsive Design</li>
+        <li>DOM Manipulation</li>
+        <li>JSON</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">Software Engineering</div>
+      <ul class="skill-list">
+        <li>Object-Oriented Programming</li>
+        <li>MVC Architecture</li>
+        <li>CRUD Applications</li>
+        <li>Database Design</li>
+        <li>UI/UX Design</li>
+        <li>Version Control</li>
+        <li>Problem Solving</li>
+        <li>Debugging</li>
+      </ul>
+    </div>
+    <div class="skill-card learning">
+      <div class="skill-cat">Currently Learning</div>
+      <ul class="skill-list">
+        <li>Spring Boot</li>
+        <li>React</li>
+        <li>Docker</li>
+        <li>Cloud Deployment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AI & DEVELOPER PRODUCTIVITY -->
+<section id="ai-productivity">
+  <div class="section-label">AI & Developer Productivity</div>
+  <div class="ai-layout">
+    <div class="reveal">
+      <h2 class="section-heading">I use AI as a tool to build faster — not to build for me.</h2>
+      <div class="ai-note">
+        <strong>"AI is used as a productivity tool</strong> to accelerate development while maintaining
+        understanding and ownership of the code."
+      </div>
+      <p class="section-intro" style="margin-bottom:0;">
+        In practice that means using AI to speed up the parts of development that surround writing code —
+        research, debugging, documentation and learning — while the design decisions and understanding of
+        how a system works stay mine.
+      </p>
+    </div>
+    <div class="ai-tags reveal">
+      <span class="ai-tag">Prompt Engineering</span>
+      <span class="ai-tag">ChatGPT</span>
+      <span class="ai-tag">GitHub Copilot</span>
+      <span class="ai-tag">AI-Assisted Debugging</span>
+      <span class="ai-tag">Code Explanation</span>
+      <span class="ai-tag">Documentation Generation</span>
+      <span class="ai-tag">Faster Technology Learning</span>
+      <span class="ai-tag">Refactoring Assistance</span>
+      <span class="ai-tag">Code Optimization</span>
+      <span class="ai-tag">Technical Research</span>
     </div>
   </div>
 </section>
@@ -575,88 +1225,395 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Projects</div>
+  <h2 class="section-heading" style="margin-bottom:56px;">Selected work from university group projects, coursework and independent builds.</h2>
   <div class="projects-grid">
 
     <!-- Featured -->
     <div class="project-card featured reveal">
       <div class="project-screenshot">
-        <img src="images/learnhub-map.png" alt="Study Locations Map System">
+        <span class="status-badge completed">Completed</span>
+        <img src="images/learnhub-map.png" alt="Study Locations Map System interface" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','01'); this.remove();">
       </div>
       <div class="project-body">
         <div class="featured-badge">Featured Project</div>
         <div class="project-num">01</div>
         <div class="project-name">Study Locations<br>Map System</div>
-        <div class="project-stack">Java · JXMapViewer · OpenStreetMap API · Apache Derby</div>
+        <div class="project-stack">
+          <span>Java</span><span>JXMapViewer</span><span>OpenStreetMap API</span><span>Apache Derby</span>
+        </div>
         <p class="project-desc">
           Designed and developed the full map-based subsystem for a university group project.
           Served as system designer and UI designer — from concept sketches to final build.
           Implemented geospatial filtering to show study spots by proximity to the user.
         </p>
-        <a href="https://github.com/AbongileALC/LearnHub" class="project-link" target="_blank">
-          View on GitHub <span class="arrow">→</span>
-        </a>
+        <ul class="project-highlights">
+          <li>Owned the full subsystem end-to-end, from wireframes to working build</li>
+          <li>Integrated a live mapping API with geospatial proximity filtering</li>
+          <li>Persisted location data through an Apache Derby database</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC/LearnHub" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- Project 2 -->
     <div class="project-card reveal">
       <div class="project-screenshot">
-        <img src="images/spotify-data.png" alt="Spotify Analyzer">
+        <span class="status-badge completed">Completed</span>
+        <img src="images/spotify-data.png" alt="Spotify Streaming Analyzer interface" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','02'); this.remove();">
       </div>
       <div class="project-body">
         <div class="project-num">02</div>
         <div class="project-name">Spotify Streaming Analyzer</div>
-        <div class="project-stack">JavaFX · Desktop Application</div>
+        <div class="project-stack"><span>JavaFX</span><span>Desktop Application</span></div>
         <p class="project-desc">
           Desktop app that analyses lifetime Spotify streaming data.
           Built interactive data visualisation and UI components from scratch.
         </p>
-        <a href="https://github.com/AbongileALC/Spotify-Streaming-Analyzer" class="project-link" target="_blank">
-          View on GitHub <span class="arrow">→</span>
-        </a>
+        <ul class="project-highlights">
+          <li>Parsed and processed large personal streaming history datasets</li>
+          <li>Built custom charts and UI views with JavaFX</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC/Spotify-Streaming-Analyzer" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- Project 3 -->
     <div class="project-card reveal">
       <div class="project-screenshot">
-        <img src="images/deal-no-deal.png" alt="Deal or No Deal">
+        <span class="status-badge completed">Completed</span>
+        <img src="images/deal-no-deal.png" alt="Deal or No Deal game interface" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','03'); this.remove();">
       </div>
       <div class="project-body">
         <div class="project-num">03</div>
         <div class="project-name">Deal or No Deal Game</div>
-        <div class="project-stack">Java · Desktop Application</div>
+        <div class="project-stack"><span>Java</span><span>Desktop Application</span></div>
         <p class="project-desc">
           Full game replicating real show logic — pick a box, eliminate remaining ones,
           receive a banker offer calculated from remaining values. Full state management throughout.
         </p>
-        <a href="https://github.com/AbongileALC/Deal-or-No-Deal-Game" class="project-link" target="_blank">
-          View on GitHub <span class="arrow">→</span>
-        </a>
+        <ul class="project-highlights">
+          <li>Modelled full game state and banker-offer calculation logic</li>
+          <li>Built from scratch with no external game framework</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC/Deal-or-No-Deal-Game" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- Project 4 -->
     <div class="project-card reveal">
       <div class="project-screenshot">
-        <img src="images/student-en.png" alt="Student Enrollment System">
-        
+        <span class="status-badge completed">Completed</span>
+        <img src="images/student-en.png" alt="Student Enrollment System interface" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','04'); this.remove();">
       </div>
       <div class="project-body">
         <div class="project-num">04</div>
         <div class="project-name">Student Enrollment System</div>
-        <div class="project-stack">Java · Swing · Apache Derby · </div>
+        <div class="project-stack"><span>Java</span><span>Swing</span><span>Apache Derby</span></div>
         <p class="project-desc">
-          Multi-user desktop app with role-based login. Admin manages students 
-          and courses. Students log in and enroll. Full CRUD with Derby database, 
+          Multi-user desktop app with role-based login. Admin manages students
+          and courses. Students log in and enroll. Full CRUD with Derby database,
           transaction management, and duplicate prevention.
         </p>
-        <a href="https://github.com/AbongileALC/Student-Enrollment-System.git" class="project-link" target="_blank">
-          View on GitHub <span class="arrow">→</span>
-        </a>
+        <ul class="project-highlights">
+          <li>Implemented role-based access for admin and student users</li>
+          <li>Added transaction handling and duplicate-enrolment prevention</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC/Student-Enrollment-System" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
+    <!-- Project 5 -->
+    <div class="project-card reveal">
+      <div class="project-screenshot">
+        <span class="status-badge progress">In Progress</span>
+        <img src="images/itemhive.png" alt="ItemHive Community Store interface" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','05'); this.remove();">
+      </div>
+      <div class="project-body">
+        <div class="project-num">05</div>
+        <div class="project-name">ItemHive Community Store</div>
+        <div class="project-stack"><span>Java</span><span>Spring Boot</span><span>Spring Data JPA</span><span>MySQL</span><span>Git</span></div>
+        <p class="project-desc">
+          Group marketplace platform built as part of an Advanced Development Practice module.
+          Converting the domain layer from plain Java to a full Spring Boot application with a
+          collaborative, branch-based GitHub workflow.
+        </p>
+        <ul class="project-highlights">
+          <li>Migrated a Builder/Factory-based domain layer to Spring Boot with JPA entities</li>
+          <li>Replaced manual repository implementations with Spring Data JPA</li>
+          <li>Fixed a broken Maven build and collaborated via per-student feature branches</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/ITEMHIVE/ITEMHIVESTORE" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card reveal">
+      <div class="project-screenshot">
+        <span class="status-badge progress">In Progress</span>
+        <img src="images/safeguard.png" alt="SafeGuard community safety app concept" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','06'); this.remove();">
+      </div>
+      <div class="project-body">
+        <div class="project-num">06</div>
+        <div class="project-name">SafeGuard</div>
+        <div class="project-stack"><span>UI/UX Design</span><span>Market Positioning</span><span>Mobile App Planning</span></div>
+        <p class="project-desc">
+          Community safety mobile app concept for Strand, Western Cape, developed as a four-person
+          Professional Practice group project. Contributed the product positioning and go-to-market
+          sections alongside the wider team's technical build.
+        </p>
+        <ul class="project-highlights">
+          <li>Contributed the "What" and "Where" sections of the product's marketing strategy</li>
+          <li>Collaborated across a four-person cross-functional team</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 7 -->
+    <div class="project-card reveal">
+      <div class="project-screenshot">
+        <span class="status-badge progress">In Progress</span>
+        <img src="images/fuel-stations.png" alt="Fuel Stations Application wireframes" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','07'); this.remove();">
+      </div>
+      <div class="project-body">
+        <div class="project-num">07</div>
+        <div class="project-name">Fuel Stations Application</div>
+        <div class="project-stack"><span>Java</span><span>Full-Stack Development</span><span>Wireframing</span><span>Multi-Tenant Architecture</span></div>
+        <p class="project-desc">
+          Multi-tenant fuel station management platform built as an Advanced Development Practice
+          group project. Working as designer and full-stack developer across Customer, Attendant and
+          Admin flows.
+        </p>
+        <ul class="project-highlights">
+          <li>Produced mobile wireframes for 17+ screens across three user roles</li>
+          <li>Designed a four-tier multi-tenant SaaS access hierarchy</li>
+          <li>Defined the pre-payment pump conflict-resolution approach</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 8 -->
+    <div class="project-card reveal">
+      <div class="project-screenshot">
+        <span class="status-badge completed">Completed</span>
+        <img src="images/js-calculator.png" alt="JavaScript Calculator interface" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.setAttribute('data-initial','08'); this.remove();">
+      </div>
+      <div class="project-body">
+        <div class="project-num">08</div>
+        <div class="project-name">JavaScript Calculator</div>
+        <div class="project-stack"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>DOM Manipulation</span></div>
+        <p class="project-desc">
+          A browser-based calculator built with vanilla JavaScript, focused on clean DOM manipulation
+          and accurate operator handling without any external libraries.
+        </p>
+        <ul class="project-highlights">
+          <li>Handled operator precedence and edge cases with plain JavaScript</li>
+          <li>Built a fully responsive, dependency-free interface</li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/AbongileALC" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience">
+  <div class="section-label">Experience & Education</div>
+  <h2 class="section-heading" style="margin-bottom:56px;">Where I've been building, learning and applying.</h2>
+  <div class="timeline">
+    <div class="timeline-item current reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Ongoing</div>
+      <div class="timeline-title">IT Software Development — CPUT</div>
+      <div class="timeline-desc">
+        Third-year student at Cape Peninsula University of Technology, nearing completion of the
+        qualification with a focus on Java, database systems and full-stack development.
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">University Group Projects</div>
+      <div class="timeline-title">ItemHive · SafeGuard · Fuel Stations Application</div>
+      <div class="timeline-desc">
+        Contributed as designer and developer across three multi-person group projects — converting
+        a domain layer to Spring Boot, producing wireframes for a multi-role platform, and shaping
+        a community safety app's positioning.
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Independent Practice</div>
+      <div class="timeline-title">Personal Projects</div>
+      <div class="timeline-desc">
+        Built standalone desktop applications, a browser-based JavaScript calculator, and this
+        portfolio site — used to practice architecture, UI decisions and shipping complete work.
+      </div>
+    </div>
+    <div class="timeline-item current reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Currently</div>
+      <div class="timeline-title">Work Integrated Learning Search</div>
+      <div class="timeline-desc">
+        Actively applying for WIL placements, with a prepared CV, GitHub portfolio submission,
+        and mock interview practice completed.
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Future-Ready</div>
+      <div class="timeline-title">Certifications</div>
+      <div class="timeline-desc">
+        Planning to pursue certifications in Java, SQL, Spring Boot and cloud platforms to
+        deepen and formalise existing skills.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Achievements</div>
+  <div class="achv-grid reveal">
+    <div class="achv-card">
+      <div class="achv-mark">01</div>
+      <div class="achv-title">Multiple Java Desktop Applications</div>
+      <div class="achv-desc">Built several complete desktop applications using JavaFX and Swing, from UI through to the database layer.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">02</div>
+      <div class="achv-title">Database-Driven Systems</div>
+      <div class="achv-desc">Designed and implemented CRUD systems backed by Apache Derby, with transaction handling and duplicate prevention.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">03</div>
+      <div class="achv-title">Full-Stack University Projects</div>
+      <div class="achv-desc">Contributed as designer and developer across multi-person group projects, from wireframes to working code.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">04</div>
+      <div class="achv-title">GitHub Portfolio</div>
+      <div class="achv-desc">Maintain a public GitHub profile showcasing completed and in-progress projects.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">05</div>
+      <div class="achv-title">Problem Solving</div>
+      <div class="achv-desc">Comfortable debugging multi-layered systems — from build tool issues to complex state management logic.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">06</div>
+      <div class="achv-title">UI/UX Design</div>
+      <div class="achv-desc">Produced wireframes and annotated mockup packages for real group projects using Figma.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">07</div>
+      <div class="achv-title">API Integration</div>
+      <div class="achv-desc">Integrated third-party APIs, including OpenStreetMap, for live geospatial features.</div>
+    </div>
+    <div class="achv-card">
+      <div class="achv-mark">08</div>
+      <div class="achv-title">Collaborative Git Workflow</div>
+      <div class="achv-desc">Worked with feature branches and pull requests across multi-student repositories.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Certifications</div>
+  <h2 class="section-heading" style="margin-bottom:40px;">Ready to grow this list.</h2>
+  <div class="cert-grid reveal">
+    <div class="cert-card">
+      <div class="cert-name">Java Programming</div>
+      <div class="cert-issuer">Certification pathway</div>
+      <div class="cert-status planned">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-name">SQL & Databases</div>
+      <div class="cert-issuer">Certification pathway</div>
+      <div class="cert-status planned">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-name">Spring Boot</div>
+      <div class="cert-issuer">Certification pathway</div>
+      <div class="cert-status planned">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-name">GitHub Foundations</div>
+      <div class="cert-issuer">Certification pathway</div>
+      <div class="cert-status planned">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-name">AWS Cloud Practitioner</div>
+      <div class="cert-issuer">Certification pathway</div>
+      <div class="cert-status planned">Planned</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-name">Microsoft Azure Fundamentals</div>
+      <div class="cert-issuer">Certification pathway</div>
+      <div class="cert-status planned">Planned</div>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB ACTIVITY -->
+<section id="github-activity">
+  <div class="section-label">GitHub Activity</div>
+  <h2 class="section-heading">Live from <span style="color:var(--accent)">github.com/AbongileALC</span></h2>
+  <p class="section-intro">Repository stats and contribution activity, pulled directly from GitHub.</p>
+
+  <div class="gh-stats-row reveal" id="ghStatsRow">
+    <div class="gh-stat"><div class="gh-stat-num skeleton" id="ghRepos">&nbsp;</div><div class="gh-stat-label">Public Repositories</div></div>
+    <div class="gh-stat"><div class="gh-stat-num skeleton" id="ghFollowers">&nbsp;</div><div class="gh-stat-label">Followers</div></div>
+    <div class="gh-stat"><div class="gh-stat-num skeleton" id="ghFollowing">&nbsp;</div><div class="gh-stat-label">Following</div></div>
+    <div class="gh-stat"><div class="gh-stat-num skeleton" id="ghSince">&nbsp;</div><div class="gh-stat-label">Member Since</div></div>
+  </div>
+
+  <div class="gh-chart-wrap reveal">
+    <img src="https://ghchart.rshah.org/c8b89a/AbongileALC" alt="Abongile Phandle's GitHub contribution graph" loading="lazy" width="800" height="128">
+  </div>
+
+  <div class="gh-lang-wrap reveal">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AbongileALC&layout=compact&theme=dark&bg_color=111111&title_color=c8b89a&text_color=e8e4de&border_color=1e1e1e" alt="Abongile Phandle's most used languages on GitHub" loading="lazy">
+  </div>
+
+  <div class="gh-cta reveal">
+    <a href="https://github.com/AbongileALC" target="_blank" rel="noopener" class="btn btn-ghost" data-ripple>
+      Open GitHub Profile <span class="arrow">→</span>
+    </a>
   </div>
 </section>
 
@@ -669,6 +1626,13 @@
         Currently seeking Work Integrated Learning (WIL) opportunities in Cape Town.
         Open to junior developer roles and internships.
       </p>
+      <div class="contact-cta-row">
+        <a href="assets/Abongile-Phandle-CV.pdf" class="btn btn-cv" download data-ripple>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download CV
+        </a>
+        <a href="https://github.com/AbongileALC" target="_blank" rel="noopener" class="btn btn-ghost" data-ripple>Open GitHub</a>
+      </div>
     </div>
     <div class="contact-links reveal">
       <a href="mailto:abongilealc@gmail.com" class="contact-item">
@@ -678,10 +1642,24 @@
         </div>
         <span class="contact-arrow">→</span>
       </a>
-      <a href="https://github.com/AbongileALC" target="_blank" class="contact-item">
+      <button class="contact-item" id="copyEmailBtn" type="button">
+        <div>
+          <div class="contact-item-label">Copy Email</div>
+          <div class="contact-item-val">Click to copy address <span class="copy-toast" id="copyToast">Copied ✓</span></div>
+        </div>
+        <span class="contact-arrow">⧉</span>
+      </button>
+      <a href="https://github.com/AbongileALC" target="_blank" rel="noopener" class="contact-item">
         <div>
           <div class="contact-item-label">GitHub</div>
-          <div class="contact-item-val">https://github.com/AbongileALC</div>
+          <div class="contact-item-val">github.com/AbongileALC</div>
+        </div>
+        <span class="contact-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/abongile-phandle" target="_blank" rel="noopener" class="contact-item">
+        <div>
+          <div class="contact-item-label">LinkedIn</div>
+          <div class="contact-item-val">linkedin.com/in/abongile-phandle</div>
         </div>
         <span class="contact-arrow">→</span>
       </a>
@@ -695,13 +1673,40 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <span class="footer-name">Abongile Phandle</span>
   <span class="footer-copy">IT Software Development · CPUT · Cape Town</span>
 </footer>
 
+<!-- ===================== CHATBOT ===================== -->
+<button class="chat-launcher" id="chatLauncher" aria-label="Open portfolio assistant" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  <span class="dot-badge"></span>
+</button>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Portfolio Assistant chat" aria-hidden="true">
+  <div class="chat-header">
+    <div class="chat-avatar">AP</div>
+    <div>
+      <div class="chat-header-title">Portfolio Assistant</div>
+      <div class="chat-header-sub"><span class="dot"></span>Online</div>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody" aria-live="polite"></div>
+  <div class="chat-quick" id="chatQuick"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Ask about my projects, skills…" aria-label="Type a message">
+    <button class="chat-send" id="chatSend" aria-label="Send message">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </button>
+  </div>
+</div>
+
 <script>
-  // Cursor
+  // ===== Custom cursor =====
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -721,7 +1726,7 @@
   }
   animateRing();
 
-  document.querySelectorAll('a, button').forEach(el => {
+  function bindCursorHover(el) {
     el.addEventListener('mouseenter', () => {
       cursor.style.width = '16px';
       cursor.style.height = '16px';
@@ -736,9 +1741,10 @@
       ring.style.height = '32px';
       ring.style.opacity = '0.5';
     });
-  });
+  }
+  document.querySelectorAll('a, button').forEach(bindCursorHover);
 
-  // Nav scroll
+  // ===== Nav scroll + progress =====
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -746,16 +1752,262 @@
     document.getElementById('scrollLine').style.width = pct + '%';
   });
 
-  // Reveal on scroll
+  // ===== Mobile nav toggle =====
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // ===== Reveal on scroll =====
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // ===== Button ripple effect =====
+  document.querySelectorAll('[data-ripple]').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const circle = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      circle.className = 'ripple';
+      circle.style.width = circle.style.height = size + 'px';
+      circle.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      circle.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      this.appendChild(circle);
+      setTimeout(() => circle.remove(), 650);
+    });
+  });
+
+  // ===== Copy email =====
+  const copyBtn = document.getElementById('copyEmailBtn');
+  const copyToast = document.getElementById('copyToast');
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('abongilealc@gmail.com');
+      copyToast.classList.add('show');
+      setTimeout(() => copyToast.classList.remove('show'), 1800);
+    } catch (err) {
+      console.error('Copy failed', err);
+    }
+  });
+
+  // ===== GitHub live stats =====
+  (async function loadGitHubStats() {
+    try {
+      const res = await fetch('https://api.github.com/users/AbongileALC');
+      if (!res.ok) throw new Error('GitHub API error');
+      const data = await res.json();
+      document.getElementById('ghRepos').textContent = data.public_repos ?? '—';
+      document.getElementById('ghFollowers').textContent = data.followers ?? '—';
+      document.getElementById('ghFollowing').textContent = data.following ?? '—';
+      const created = data.created_at ? new Date(data.created_at).getFullYear() : '—';
+      document.getElementById('ghSince').textContent = created;
+      document.querySelectorAll('#ghStatsRow .gh-stat-num').forEach(el => el.classList.remove('skeleton'));
+    } catch (err) {
+      ['ghRepos', 'ghFollowers', 'ghFollowing', 'ghSince'].forEach(id => {
+        const el = document.getElementById(id);
+        el.textContent = '—';
+        el.classList.remove('skeleton');
+      });
+      console.warn('Could not load GitHub stats:', err);
+    }
+  })();
+
+  // ===== Lazy image fade-in =====
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    img.classList.add('lazy-img');
+    if (img.complete) img.classList.add('loaded');
+    else img.addEventListener('load', () => img.classList.add('loaded'));
+  });
+
+  // ===================== PORTFOLIO ASSISTANT CHATBOT =====================
+  const chatLauncher = document.getElementById('chatLauncher');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatClose = document.getElementById('chatClose');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+  const chatQuick = document.getElementById('chatQuick');
+
+  const quickQuestions = [
+    'Tell me about Abongile',
+    'What Java projects has he built?',
+    'What technologies does he know?',
+    'Show his GitHub',
+    'Is he available for internships?',
+    'What databases has he used?',
+    'What AI tools does he use?',
+    'Download CV'
+  ];
+
+  const kb = [
+    {
+      keys: ['about', 'who is', 'introduce', 'yourself', 'abongile'],
+      reply: "Abongile is a third-year IT Software Development student at CPUT in Cape Town, focused on Java, full-stack development and backend systems. He's currently seeking a Work Integrated Learning placement — check the About section for more."
+    },
+    {
+      keys: ['java project', 'java app', 'desktop app'],
+      reply: "His Java work includes the Study Locations Map System (JXMapViewer + OpenStreetMap), the Deal or No Deal Game, the Student Enrollment System (Java Swing + Apache Derby), and ItemHive, now being converted to Spring Boot. See the Projects section for details."
+    },
+    {
+      keys: ['project'],
+      reply: "He's built 8 projects so far, spanning desktop apps, a marketplace platform, a fuel-station management system and a community safety app. The Study Locations Map System is the featured project — scroll to Projects to see them all."
+    },
+    {
+      keys: ['technolog', 'tech stack', 'stack', 'skill'],
+      reply: "His toolkit covers Java, JavaScript, HTML/CSS, Python and SQL, with JavaFX, Swing and Spring Boot for building applications, plus Git, Maven and Figma. He's currently learning React, Docker and cloud deployment — see the Skills section."
+    },
+    {
+      keys: ['github'],
+      reply: "You can find his GitHub profile at github.com/AbongileALC — it includes live repo stats and a contribution graph in the GitHub Activity section of this site."
+    },
+    {
+      keys: ['intern', 'wil', 'available', 'placement', 'hire', 'graduate role', 'junior'],
+      reply: "Yes — he's actively seeking a Work Integrated Learning placement, and is also open to junior developer and graduate software engineer roles based in Cape Town."
+    },
+    {
+      keys: ['database', 'sql', 'derby', 'mysql'],
+      reply: "He's worked with Apache Derby for desktop CRUD applications and is building MySQL experience through the Spring Boot conversion of ItemHive. His coursework also covers relational database design and ER modelling."
+    },
+    {
+      keys: ['ai tool', 'ai use', 'chatgpt', 'copilot', 'productivity'],
+      reply: "He uses AI tools like ChatGPT and GitHub Copilot for debugging help, code explanation, documentation and faster research — while keeping ownership of the actual design and code decisions. See the AI & Developer Productivity section."
+    },
+    {
+      keys: ['download cv', 'resume', 'cv'],
+      reply: 'You can download his CV using the button in the navigation bar or the Contact section. <a href="assets/Abongile-Phandle-CV.pdf" download>Click here to download it directly</a>.'
+    },
+    {
+      keys: ['education', 'cput', 'study', 'diploma', 'university'],
+      reply: "He's a third-year IT Software Development student at Cape Peninsula University of Technology (CPUT), nearing completion of his qualification."
+    },
+    {
+      keys: ['contact', 'email', 'reach', 'linkedin'],
+      reply: "You can reach him at abongilealc@gmail.com, or find his GitHub and LinkedIn links in the Contact section at the bottom of this page."
+    },
+    {
+      keys: ['career', 'goal', 'interest', 'backend'],
+      reply: "He's especially interested in backend development and software engineering — clean architecture, database design, and building systems that are easy to test and maintain."
+    },
+    {
+      keys: ['certif'],
+      reply: "He's planning certifications in Java, SQL, Spring Boot, GitHub, AWS and Azure — see the Certifications section for the full, growing list."
+    }
+  ];
+
+  function findReply(text) {
+    const t = text.toLowerCase();
+    for (const entry of kb) {
+      if (entry.keys.some(k => t.includes(k))) return entry.reply;
+    }
+    return "I don't have a specific answer for that yet, but you can explore the Projects, Skills or Experience sections above — or email Abongile directly at abongilealc@gmail.com.";
+  }
+
+  let chatOpened = false;
+  let history = [];
+
+  function scrollChatToBottom() {
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addMessage(sender, html) {
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg ' + sender;
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.innerHTML = html;
+    msg.appendChild(bubble);
+    chatBody.appendChild(msg);
+    history.push({ sender, html });
+    scrollChatToBottom();
+  }
+
+  function showTyping() {
+    const typing = document.createElement('div');
+    typing.className = 'chat-msg bot';
+    typing.id = 'typingIndicator';
+    typing.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
+    chatBody.appendChild(typing);
+    scrollChatToBottom();
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('typingIndicator');
+    if (t) t.remove();
+  }
+
+  function botReply(userText) {
+    showTyping();
+    const delay = 500 + Math.random() * 500;
+    setTimeout(() => {
+      removeTyping();
+      addMessage('bot', findReply(userText));
+    }, delay);
+  }
+
+  function renderQuickQuestions() {
+    chatQuick.innerHTML = '';
+    quickQuestions.forEach(q => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = q;
+      b.addEventListener('click', () => handleUserMessage(q));
+      bindCursorHover(b);
+      chatQuick.appendChild(b);
+    });
+  }
+
+  function handleUserMessage(text) {
+    if (!text.trim()) return;
+    addMessage('user', text);
+    chatInput.value = '';
+    botReply(text);
+  }
+
+  function openChat() {
+    chatPanel.classList.add('open');
+    chatPanel.setAttribute('aria-hidden', 'false');
+    chatLauncher.setAttribute('aria-expanded', 'true');
+    if (!chatOpened) {
+      chatOpened = true;
+      addMessage('bot', "Hello! I'm Abongile's Portfolio Assistant. Ask me anything about his projects, technical skills, education, or experience.");
+      renderQuickQuestions();
+    }
+    chatInput.focus();
+  }
+
+  function closeChat() {
+    chatPanel.classList.remove('open');
+    chatPanel.setAttribute('aria-hidden', 'true');
+    chatLauncher.setAttribute('aria-expanded', 'false');
+  }
+
+  chatLauncher.addEventListener('click', () => {
+    chatPanel.classList.contains('open') ? closeChat() : openChat();
+  });
+  chatClose.addEventListener('click', closeChat);
+  chatSend.addEventListener('click', () => handleUserMessage(chatInput.value));
+  chatInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleUserMessage(chatInput.value);
+  });
+  bindCursorHover(chatLauncher);
+  bindCursorHover(chatClose);
+  bindCursorHover(chatSend);
 </script>
 </body>
 </html>
